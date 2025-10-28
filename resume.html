@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zachary Tipton - Resume</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Georgia', 'Times New Roman', serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f5f5f5;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 850px;
+            margin: 0 auto;
+            background: white;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+        }
+        
+        /* Print button */
+        .print-button {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: #667eea;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+            transition: all 0.3s;
+            z-index: 1000;
+        }
+        
+        .print-button:hover {
+            background: #5568d3;
+            transform: translateY(-2px);
+        }
+        
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+            .container {
+                box-shadow: none;
+                max-width: 100%;
+            }
+            .print-button {
+                display: none;
+            }
+            a {
+                color: #333 !important;
+                text-decoration: none !important;
+            }
+            .clickable-tag::after {
+                display: none;
+            }
+        }
+        
+        /* Header */
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px;
+            text-align: center;
+        }
+        
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 0.3rem;
+            font-weight: 400;
+        }
+        
+        .header .tagline {
+            font-size: 1.2em;
+            opacity: 0.95;
+            margin-bottom: 1.5rem;
+            font-style: italic;
+        }
+        
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            font-size: 0.95em;
+        }
+        
+        .contact-info a {
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s;
+            padding: 5px 10px;
+            border-radius: 5px;
+        }
+        
+        .contact-info a:hover {
+            background: rgba(255,255,255,0.2);
+            transform: translateY(-2px);
+        }
+        
+        /* Content */
+        .content {
+            padding: 40px 50px;
+        }
+        
+        .section {
+            margin-bottom: 35px;
+        }
+        
+        .section-title {
+            font-size: 1.5em;
+            color: #667eea;
+            border-bottom: 2px solid #667eea;
+            padding-bottom: 5px;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+        
+        /* Education */
+        .education-item,
+        .experience-item {
+            margin-bottom: 25px;
+        }
+        
+        .item-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            margin-bottom: 8px;
+        }
+        
+        .item-title {
+            font-weight: 600;
+            font-size: 1.1em;
+            color: #2c3e50;
+        }
+        
+        .item-subtitle {
+            font-style: italic;
+            color: #555;
+            margin-bottom: 5px;
+        }
+        
+        .item-date {
+            color: #666;
+            font-size: 0.95em;
+            white-space: nowrap;
+            font-weight: 600;
+        }
+        
+        .item-details {
+            color: #555;
+            margin-top: 8px;
+        }
+        
+        .item-details ul {
+            margin-left: 20px;
+            margin-top: 8px;
+        }
+        
+        .item-details li {
+            margin-bottom: 5px;
+        }
+        
+        /* Clickable elements */
+        .clickable {
+            color: #667eea;
+            text-decoration: none;
+            border-bottom: 1px dashed #667eea;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+        
+        .clickable:hover {
+            color: #764ba2;
+            border-bottom-color: #764ba2;
+            background: rgba(102, 126, 234, 0.05);
+        }
+        
+        .clickable-tag {
+            display: inline-block;
+            color: #667eea;
+            text-decoration: none;
+            cursor: pointer;
+            position: relative;
+            transition: all 0.3s;
+        }
+        
+        .clickable-tag::after {
+            content: '→';
+            opacity: 0;
+            margin-left: 3px;
+            transition: all 0.3s;
+        }
+        
+        .clickable-tag:hover {
+            color: #764ba2;
+            transform: translateX(3px);
+        }
+        
+        .clickable-tag:hover::after {
+            opacity: 1;
+        }
+        
+        /* Skills */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+        }
+        
+        .skill-category strong {
+            color: #2c3e50;
+            display: block;
+            margin-bottom: 5px;
+        }
+        
+        /* Publications */
+        .publication {
+            margin-bottom: 15px;
+            padding-left: 20px;
+            text-indent: -20px;
+            color: #555;
+        }
+        
+        .publication a {
+            color: #667eea;
+            text-decoration: none;
+        }
+        
+        .publication a:hover {
+            text-decoration: underline;
+        }
+        
+        /* Volunteer */
+        .volunteer-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        
+        .volunteer-item {
+            background: #f8f9fa;
+            padding: 8px 15px;
+            border-radius: 20px;
+            color: #555;
+            font-size: 0.95em;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .content {
+                padding: 30px 25px;
+            }
+            
+            .header {
+                padding: 30px 20px;
+            }
+            
+            .header h1 {
+                font-size: 2em;
+            }
+            
+            .item-header {
+                flex-direction: column;
+                gap: 5px;
+            }
+            
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .print-button {
+                position: static;
+                margin: 0 auto 20px;
+                display: block;
+                width: fit-content;
+            }
+        }
+        
+        /* Tooltip for clickable items */
+        .tooltip {
+            position: relative;
+        }
+        
+        .tooltip:hover::before {
+            content: attr(data-tooltip);
+            position: absolute;
+            bottom: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #2c3e50;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 0.85em;
+            white-space: nowrap;
+            z-index: 100;
+        }
+    </style>
+</head>
+<body>
+    <button class="print-button" onclick="window.print()">🖨️ Print / Save PDF</button>
+    
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <h1>Zachary Tipton</h1>
+            <p class="tagline">Data Scientist • Ecologist • Econometrics Specialist</p>
+            <div class="contact-info">
+                <span>📍 Fayetteville, AR 72701</span>
+                <span>•</span>
+                <a href="tel:479-276-0195">📞 (479) 276-0195</a>
+                <span>•</span>
+                <a href="mailto:zacharytipton@gmail.com">✉️ zacharytipton@gmail.com</a>
+                <span>•</span>
+                <a href="https://linkedin.com/in/ztipton" target="_blank">💼 LinkedIn</a>
+                <span>•</span>
+                <a href="https://github.com/yourname" target="_blank">⚡ GitHub</a>
+            </div>
+        </div>
+        
+        <!-- Content -->
+        <div class="content">
+            
+            <!-- Education -->
+            <div class="section">
+                <h2 class="section-title">Education</h2>
+                
+                <div class="education-item">
+                    <div class="item-header">
+                        <div>
+                            <div class="item-title">Master of Science in Economic Analytics</div>
+                            <div class="item-subtitle">University of Arkansas – Fayetteville</div>
+                        </div>
+                        <div class="item-date">Expected May 2026</div>
+                    </div>
+                    <div class="item-details">
+                        <ul>
+                            <li>Developing expertise in economic modeling, <a href="#" class="clickable tooltip" data-tooltip="Click to see econometrics projects">econometrics</a>, and machine learning for data-driven decision-making</li>
+                            <li>Training in advanced statistical methods, causal inference, and computational tools for public and private sector analyses</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="education-item">
+                    <div class="item-header">
+                        <div>
+                            <div class="item-title">Master of Science in Biology</div>
+                            <div class="item-subtitle">University of Arkansas – Fayetteville</div>
+                        </div>
+                        <div class="item-date">December 2023</div>
+                    </div>
+                    <div class="item-details">
+                        <p><strong>Thesis:</strong> <a href="https://scholarworks.uark.edu/etd/5103" target="_blank" class="clickable">Patterns in Winter Stonefly Distribution Along a River Continuum and Land-Use Gradient in Northwest Arkansas Streams</a></p>
+                        <p><strong>Committee:</strong> Dr. Michelle Evans-White (Chair), Dr. Daniel Magoulick, Dr. Kusum Naithani, Dr. Mary Savin</p>
+                        <ul>
+                            <li>Awarded the Distinguished Doctoral Fellowship totaling $88,000 over four years</li>
+                            <li>Presented original research at <a href="#" class="clickable">SFS 2019</a> (poster) and <a href="#" class="clickable">JASM 2022</a> (oral)</li>
+                            <li>Skilled in applying <a href="#" class="clickable tooltip" data-tooltip="R, Python, GIS">statistical analysis</a> to biological and environmental datasets</li>
+                            <li>Conducted independent field research and macroinvertebrate sampling across varied stream environments</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="education-item">
+                    <div class="item-header">
+                        <div>
+                            <div class="item-title">Bachelor of Science in Environmental, Soil and Water Science</div>
+                            <div class="item-subtitle">University of Arkansas – Fayetteville | Minors: Chinese, Statistics</div>
+                        </div>
+                        <div class="item-date">December 2018</div>
+                    </div>
+                    <div class="item-details">
+                        <p><strong>GPA:</strong> 3.59/4.0 <em>cum laude</em></p>
+                        <p><strong>Honors Thesis:</strong> <a href="https://scholarworks.uark.edu/discoverymag/vol19/iss1/15/" target="_blank" class="clickable">Soil organic carbon and mineralization rates at the Woolsey Wet Prairie Mitigation site</a></p>
+                        <ul>
+                            <li>Awarded $14,550 in scholarships and grants</li>
+                            <li>Delivered oral research presentation at 2017 ASA, CSSA, SSSA international conference</li>
+                            <li>Completed study abroad programs in Ghent, Belgium; Beijing, China; and Tainan, Taiwan</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Experience -->
+            <div class="section">
+                <h2 class="section-title">Professional Experience</h2>
+                
+                <div class="experience-item">
+                    <div class="item-header">
+                        <div>
+                            <div class="item-title">Graduate Assistant – Division of Academic Affairs</div>
+                            <div class="item-subtitle">University of Arkansas – Fayetteville</div>
+                        </div>
+                        <div class="item-date">May 2025 – Present</div>
+                    </div>
+                    <div class="item-details">
+                        <ul>
+                            <li>Lead marketing and outreach initiatives to promote Writing Studio services across campus</li>
+                            <li>Cultivate partnerships with academic departments and student organizations to expand Studio visibility</li>
+                            <li>Design and deliver in-person and virtual workshops on writing strategies and available support services</li>
+                            <li>Plan and execute student-focused events to increase engagement with Writing Studio resources</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="experience-item">
+                    <div class="item-header">
+                        <div>
+                            <div class="item-title">Teacher Naturalist</div>
+                            <div class="item-subtitle">Ozark Natural Science Center</div>
+                        </div>
+                        <div class="item-date">May 2023 – May 2025</div>
+                    </div>
+                    <div class="item-details">
+                        <ul>
+                            <li>Fostered student understanding, appreciation, and stewardship of the Ozark natural environment</li>
+                            <li>Organized and led immersive wilderness education programs in the Ozarks</li>
+                            <li>Delivered nature-based instruction through interpretive hikes and classroom sessions for students of all ages</li>
+                            <li>Maintained a safe, supportive environment by prioritizing the physical and emotional well-being of students</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="experience-item">
+                    <div class="item-header">
+                        <div>
+                            <div class="item-title">Teaching Assistant – Department of Biological Sciences</div>
+                            <div class="item-subtitle">University of Arkansas – Fayetteville</div>
+                        </div>
+                        <div class="item-date">January 2019 – December 2023</div>
+                    </div>
+                    <div class="item-details">
+                        <ul>
+                            <li>Guided the next generation of health professionals in Human Physiology Lab</li>
+                            <li>Created lab content presentations and was regularly praised by students for explaining difficult material clearly</li>
+                            <li>Maintained lab environmental and health safety standards for nearly 400 students with zero incidents</li>
+                            <li>Ranked in the <strong>top 10%</strong> of departmental instructors based on student evaluations across eight semesters</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="experience-item">
+                    <div class="item-header">
+                        <div>
+                            <div class="item-title">Service Assistant I – Information Technology Services</div>
+                            <div class="item-subtitle">University of Arkansas – Fayetteville</div>
+                        </div>
+                        <div class="item-date">2007 – 2019</div>
+                    </div>
+                    <div class="item-details">
+                        <ul>
+                            <li>Delivered front-line technical support and excellent customer service for hardware and software issues</li>
+                            <li>Promoted to full-time supervisor in 2014 in recognition of performance and leadership</li>
+                            <li>Oversaw operations for six computer labs, managing over $250,000 worth of equipment</li>
+                            <li>Developed lab policies, created schedules, and recruited and trained ~30 employees per semester</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Skills -->
+            <div class="section">
+                <h2 class="section-title">Technical Skills & Tools</h2>
+                <div class="skills-grid">
+                    <div class="skill-category">
+                        <strong>Data Analysis:</strong> 
+                        <a href="https://github.com/yourname?tab=repositories&q=python" target="_blank" class="clickable-tag">Python</a>, 
+                        <a href="https://github.com/yourname?tab=repositories&q=R" target="_blank" class="clickable-tag">R</a>, 
+                        Stata, 
+                        <a href="https://github.com/yourname?tab=repositories&q=sql" target="_blank" class="clickable-tag">SQL</a>
+                    </div>
+                    <div class="skill-category">
+                        <strong>Visualization:</strong> 
+                        Excel, ggplot2, Power BI, Tableau
+                    </div>
+                    <div class="skill-category">
+                        <strong>GIS & Spatial:</strong> 
+                        QGIS, ArcGIS, Remote Sensing
+                    </div>
+                    <div class="skill-category">
+                        <strong>Other:</strong> 
+                        Professional Writing, Public Speaking, Research Design, Project Management
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Publications -->
+            <div class="section">
+                <h2 class="section-title">Publications & Contributions</h2>
+                
+                <div class="publication">
+                    <strong>Tipton, Z.</strong> (2023). <a href="https://scholarworks.uark.edu/etd/5103" target="_blank">Patterns in Winter Stonefly Distribution Along a River Continuum and Land-Use Gradient in Northwest Arkansas Streams</a>. <em>Graduate Theses and Dissertations</em>. Master's thesis.
+                </div>
+                
+                <div class="publication">
+                    <strong>Tipton, Z.</strong>, Wood, L.S., Savin, M., Runkle, B.R. (2018). <a href="https://scholarworks.uark.edu/discoverymag/vol19/iss1/15/" target="_blank">Soil organic carbon and mineralization rates at the Woolsey Wet Prairie Mitigation site in Fayetteville, Arkansas</a>. <em>Discovery: The Student Journal of Dale Bumpers College</em>, 19(1), 71-80. Undergraduate honors thesis.
+                </div>
+                
+                <div class="publication">
+                    Feng, T., <strong>Tipton, Z.</strong>, Xia, L., Chang, Y. (2019). Evaluation of CORDEX regional climate models in simulating extreme dry spells in Southwest China. <em>Frontiers in Earth Science</em>, 7(294). Assisted with manuscript editing and writing revision.
+                </div>
+            </div>
+            
+            <!-- Certifications -->
+            <div class="section">
+                <h2 class="section-title">Certifications</h2>
+                <div class="education-item">
+                    <div class="item-header">
+                        <div>
+                            <div class="item-title">Google Project Management Professional Certificate</div>
+                            <div class="item-subtitle">Coursera</div>
+                        </div>
+                        <div class="item-date">January 2025</div>
+                    </div>
+                    <div class="item-details">
+                        Completed comprehensive 7-course program developed by Google, including hands-on, practice-based assessments. Trained to initiate, plan, and manage traditional and Agile projects.
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Volunteer -->
+            <div class="section">
+                <h2 class="section-title">Volunteer Organizations</h2>
+                <div class="volunteer-list">
+                    <div class="volunteer-item">Arkansas Master Naturalists</div>
+                    <div class="volunteer-item">Beaver Watershed Alliance</div>
+                    <div class="volunteer-item">City of Fayetteville Parks & Recreation</div>
+                    <div class="volunteer-item">Illinois River Watershed Partnership</div>
+                    <div class="volunteer-item">Society for Freshwater Science</div>
+                    <div class="volunteer-item">UA International Students & Scholars</div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+    
+    <script>
+        // Add click handlers for clickable elements
+        document.querySelectorAll('.clickable, .clickable-tag').forEach(link => {
+            link.addEventListener('click', function(e) {
+                // If it doesn't have a valid href, show an alert
+                if (!this.href || this.href.endsWith('#')) {
+                    e.preventDefault();
+                    const text = this.textContent.trim();
+                    alert(`This would link to your ${text} projects on GitHub!\n\nReplace the href with your actual GitHub repository URL.`);
+                }
+            });
+        });
+    </script>
+</body>
+</html>
