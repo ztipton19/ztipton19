@@ -3,12 +3,17 @@ Welcome to my GitHub page! I am currently an M.S. graduate student in Economic A
 
 Here I present my data analyist portfolio where I demonstrate my ability to gather, clean, and manipulate data along with applying traditional and machine learning statistical methods to my analysis. 
 
-You can view my resume here.
+### Resume:
+You can view my resume [here](https://github.com/ztipton19/resume.html).
 
+### M.S. Biology Thesis
 My graduate thesis in Biology can be viewed [here](https://github.com/ztipton19/ms-thesis-biology/tree/main).
 
-## My skillset at a glance: 
+### My skillset at a glance: 
 Toolset: SQL, Python, R, Stata, Tableau, PowerBI 
+View my projects [here](https://github.com/ztipton19/projects-hub)
+
+• [✉️ zacharytipton@gmail.com](mailto:zacharytipton@gmail.com) • [💼 LinkedIn](https://linkedin.com/in/ztipton)
 
 
 <!--
