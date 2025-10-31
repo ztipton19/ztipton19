@@ -4,7 +4,7 @@ Welcome to my GitHub page! I am currently an M.S. graduate student in Economic A
 Here I present my data analyist portfolio where I demonstrate my ability to gather, clean, and manipulate data along with applying traditional and machine learning statistical methods to my analysis. 
 
 ### Resume:
-You can view my resume [here](https://github.com/ztipton19/resume.html).
+You can view my resume [here](https://github.com/ztipton19/ztipton19/blob/main/resume.html).
 
 ### M.S. Biology Thesis
 My graduate thesis in Biology can be viewed [here](https://github.com/ztipton19/ms-thesis-biology/tree/main).
