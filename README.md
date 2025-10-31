@@ -1,5 +1,5 @@
 ## Introduction:
-Welcome to my GitHub page! I am currently an M.S. graduate student in Economic Analysis which focuses heavily on all the aspects of being a data scientist. I also hold an M.S. in Biology-Stream Ecology and a B.S.A. in Environmental, Soil, and Water Science. 
+Welcome to my GitHub page! I am currently an M.S. graduate student in Economic Analysis (May 2026) which focuses heavily on all the aspects of being a data scientist. I also hold an M.S. in Biology-Stream Ecology and a B.S.A. in Environmental, Soil, and Water Science. 
 
 Here I present my data analyist portfolio where I demonstrate my ability to gather, clean, and manipulate data along with applying traditional and machine learning statistical methods to my analysis. 
 
