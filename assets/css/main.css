@@ -3219,3 +3219,13 @@ input, select, textarea {
 			}
 
 	}
+
+	/* Project page spacing fixes */
+.project-page {
+  padding-top: 4em; /* was 8em */
+}
+
+.project-page > section {
+  margin-top: 2em;
+  padding-top: 2em;
+}
