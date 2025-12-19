@@ -3229,3 +3229,9 @@ input, select, textarea {
   margin-top: 2em;
   padding-top: 2em;
 }
+
+#main > section.intro {
+  margin-top: 0;
+  padding-top: 0;
+  border-top: 0;
+}
