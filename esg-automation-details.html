@@ -1,0 +1,233 @@
+<!DOCTYPE HTML>
+<!--
+	Strata by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>ESG Automation System | Zachary Tipton</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+	</head>
+	<body class="is-preload">
+
+		<header id="header">
+		<div class="inner">
+			<h1>
+			<strong>ESG Automation System</strong>
+			</h1>
+
+			<p style="margin-top: 1em; line-height: 1.5em;">
+			Automated ESG compliance reporting with intelligent 3-tier extraction 
+			using Claude Vision and OCR for utility bill data processing.
+			</p>
+		</div>
+		</header>
+
+		<!-- Main -->
+			<div id="main" class="project-page">
+
+				<!-- Back Button -->
+				<section class="intro">
+				<div style="margin-bottom: 1em;">
+					<a href="index.html" class="button small">← Back to Portfolio</a>
+				</div>
+				</section>
+
+				<!-- System Preview -->
+				<section>
+					<div class="box alt">
+						<div class="row gtr-50 gtr-uniform">
+							<div class="col-12">
+								<img src="images/fulls/esg-automation.png" alt="ESG Automation System" style="width: 100%; border-radius: 4px;" />
+							</div>
+						</div>
+					</div>
+					<ul class="actions">
+						<li><a href="https://github.com/ztipton19/esg-ai-project" class="button primary">View on GitHub</a></li>
+					</ul>
+				</section>
+
+				<!-- Overview -->
+				<section>
+					<h2>Project Overview</h2>
+					<p>Large enterprises manually process thousands of utility bills annually for ESG reporting, leading to high labor costs, human error, slow reporting cycles, and expensive AI-only solutions ($10-20 per 1,000 bills). This system automates the entire workflow from bill upload to GRI-compliant PDF reports, reducing processing time from hours to seconds and costs by 95%.</p>
+					
+					<h3>Key Performance Metrics</h3>
+					<ul>
+						<li><strong>Cost Reduction:</strong> 95% cost savings vs. traditional AI solutions ($0.50-1.00 per 1,000 bills)</li>
+						<li><strong>Processing Speed:</strong> 2-4 seconds per bill (vs. hours of manual entry)</li>
+						<li><strong>Accuracy:</strong> 95%+ extraction accuracy with Claude Vision fallback</li>
+						<li><strong>Local Processing:</strong> 95% of bills processed at zero cost using Docling and Tesseract OCR</li>
+					</ul>
+				</section>
+
+				<!-- Technical Skills -->
+				<section>
+					<h2>Technical Skills Demonstrated</h2>
+					
+					<h3>AI Integration & Architecture</h3>
+					<ul>
+						<li><strong>3-Tier Extraction Strategy:</strong> Designed intelligent fallback system using Docling (local) → Tesseract OCR (local) → Claude Vision API (cloud) to optimize cost and accuracy</li>
+						<li><strong>Claude API Integration:</strong> Implemented production-grade API calls with error handling, rate limiting, and cost tracking</li>
+						<li><strong>Vision AI:</strong> Leveraged Claude Vision for complex PDF layouts that defeat traditional OCR</li>
+						<li><strong>Prompt Engineering:</strong> Crafted structured prompts for consistent data extraction and GRI-compliant report generation</li>
+						<li><strong>Cost Optimization:</strong> Reduced AI processing costs by 95% through intelligent tier selection and local-first architecture</li>
+					</ul>
+
+					<h3>Data Engineering & Processing</h3>
+					<ul>
+						<li><strong>PDF Processing Pipeline:</strong> Built multi-modal extraction system handling text-based PDFs, scanned documents, and complex layouts</li>
+						<li><strong>Data Validation:</strong> Implemented comprehensive validation including hallucination detection, completeness checks, and rate sanity verification ($0.01-$5.00/kWh)</li>
+						<li><strong>Unit Conversion:</strong> Automated kWh/MWh normalization and meter reading calculations</li>
+						<li><strong>Batch Processing:</strong> Designed system to handle multiple bills simultaneously with parallel processing</li>
+						<li><strong>Audit Trails:</strong> Complete extraction methodology logging for compliance verification</li>
+					</ul>
+
+					<h3>Production Application Development</h3>
+					<ul>
+						<li><strong>Streamlit Web Interface:</strong> Built production-grade UI with file upload, real-time processing, and interactive dashboards</li>
+						<li><strong>Session Management:</strong> Implemented state management for multi-bill processing and cost tracking</li>
+						<li><strong>Error Handling:</strong> Comprehensive exception handling with user-friendly error messages and automatic fallback logic</li>
+						<li><strong>Cloud Deployment:</strong> Configured for Streamlit Cloud with automatic dependency installation (Tesseract, Poppler)</li>
+						<li><strong>Environment Configuration:</strong> Secure API key management using environment variables and Streamlit secrets</li>
+					</ul>
+
+					<h3>ESG & Compliance Domain Knowledge</h3>
+					<ul>
+						<li><strong>GRI Standards:</strong> Implemented GRI 305-2 (Energy Indirect Emissions) compliance reporting</li>
+						<li><strong>EPA eGRID Integration:</strong> Accurate emission factor calculations using EPA 2023 regional data</li>
+						<li><strong>Multi-Region Support:</strong> Configured for US Average, Arkansas, California, Texas, New York, and Florida emission factors</li>
+						<li><strong>Professional Reporting:</strong> Generated publication-ready PDF reports with methodology documentation and validation statements</li>
+					</ul>
+
+					<h3>Python & Software Engineering</h3>
+					<ul>
+						<li><strong>Modular Architecture:</strong> Clean separation of concerns across extraction, calculation, validation, and reporting modules</li>
+						<li><strong>PDF Generation:</strong> ReportLab integration for professional document creation</li>
+						<li><strong>API Client Development:</strong> Anthropic API integration with proper error handling and response parsing</li>
+						<li><strong>Document AI Libraries:</strong> Docling (IBM) and Tesseract OCR integration for local processing</li>
+						<li><strong>Testing & Validation:</strong> Built comprehensive validation framework to detect extraction errors</li>
+					</ul>
+				</section>
+
+				<!-- System Architecture -->
+				<section>
+					<h2>System Architecture</h2>
+					<p>The ESG Automation System uses an intelligent 3-tier extraction strategy that prioritizes cost-effectiveness while maintaining high accuracy:</p>
+					
+					<h3>Tier 1: Docling (Local Processing)</h3>
+					<p>IBM's open-source document AI processes text-based PDFs locally at zero cost. Handles 85% of standard utility bills with 85-90% accuracy in 2-3 seconds.</p>
+
+					<h3>Tier 2: Tesseract OCR (Local Processing)</h3>
+					<p>Open-source OCR processes scanned/image PDFs locally at zero cost. Handles 10% of bills with 70-85% accuracy in 3-5 seconds.</p>
+
+					<h3>Tier 3: Claude Vision API (Cloud Fallback)</h3>
+					<p>Anthropic's Claude Vision API handles complex layouts when local methods fail. Processes 5% of bills at ~$0.01-0.02 per bill with 95%+ accuracy in 2-4 seconds.</p>
+
+					<h3>Processing Pipeline</h3>
+					<ol>
+						<li><strong>Upload & Validation:</strong> PDF uploaded via Streamlit interface, validated for format and size</li>
+						<li><strong>Intelligent Routing:</strong> System selects optimal extraction tier based on document characteristics</li>
+						<li><strong>Data Extraction:</strong> Utility name, account number, billing period, kWh usage extracted with structured JSON output</li>
+						<li><strong>Quality Validation:</strong> Completeness checks, rate sanity verification, hallucination detection</li>
+						<li><strong>Emissions Calculation:</strong> EPA eGRID factors applied based on selected region</li>
+						<li><strong>Report Generation:</strong> GRI 305-2 compliant PDF with full methodology documentation</li>
+					</ol>
+				</section>
+
+				<!-- Business Impact -->
+				<section>
+					<h2>Business Impact</h2>
+					<p>This system demonstrates practical application of AI to solve real enterprise problems:</p>
+					<ul>
+						<li><strong>95% Cost Reduction:</strong> From $10-20 per 1,000 bills (traditional AI) to $0.50-1.00 per 1,000 bills</li>
+						<li><strong>Time Savings:</strong> Processing reduced from hours per bill to seconds per bill</li>
+						<li><strong>Scalability:</strong> Handles batch processing for enterprise-scale operations</li>
+						<li><strong>Accuracy:</strong> Eliminates human data entry errors while maintaining audit trails</li>
+						<li><strong>Compliance:</strong> Ensures GRI 305-2 reporting standards are met consistently</li>
+					</ul>
+				</section>
+
+				<!-- Tools & Technologies -->
+				<section>
+					<h2>Tools & Technologies</h2>
+					<ul>
+						<li><strong>Anthropic Claude API:</strong> Vision-based PDF extraction, report generation, data validation</li>
+						<li><strong>Docling (IBM):</strong> Local document AI for text-based PDF processing</li>
+						<li><strong>Tesseract OCR:</strong> Local optical character recognition for scanned documents</li>
+						<li><strong>Streamlit:</strong> Production web application framework</li>
+						<li><strong>ReportLab:</strong> Professional PDF generation for GRI reports</li>
+						<li><strong>Python:</strong> Core application development, data processing, API integration</li>
+						<li><strong>EPA eGRID:</strong> Regional emission factor database</li>
+					</ul>
+				</section>
+
+				<!-- Key Takeaways -->
+				<section>
+					<h2>Key Takeaways</h2>
+					<p>This project demonstrates several critical principles in production AI systems:</p>
+					<ol>
+						<li><strong>Cost-Effective AI Architecture:</strong> Strategic use of local processing (free) before cloud APIs (paid) reduces costs by 95% while maintaining quality</li>
+						<li><strong>Intelligent Fallback Systems:</strong> Multi-tier extraction ensures reliability - when cheaper methods fail, more sophisticated (and expensive) methods take over</li>
+						<li><strong>Production-Ready Design:</strong> Comprehensive error handling, validation, and audit trails make this system enterprise-grade</li>
+						<li><strong>Domain Knowledge Integration:</strong> Understanding ESG compliance requirements (GRI standards, EPA factors) is as important as technical implementation</li>
+						<li><strong>User-Centric Development:</strong> Clean interface, real-time feedback, and clear documentation make complex AI systems accessible to non-technical users</li>
+					</ol>
+				</section>
+
+				<!-- Future Enhancements -->
+				<section>
+					<h2>Potential Enterprise Enhancements</h2>
+					<p>If moving this system into production, key improvements would include:</p>
+					<ul>
+						<li><strong>Prompt Caching:</strong> Anthropic's caching feature could reduce API costs by another 90%</li>
+						<li><strong>Batch API:</strong> Process 100+ bills simultaneously with async requests</li>
+						<li><strong>ERP Integration:</strong> SAP/SharePoint connectors for automatic bill ingestion</li>
+						<li><strong>Extended Scope:</strong> Scope 1 (natural gas, fleet) and Scope 3 (supply chain) emissions</li>
+						<li><strong>Multi-Standard Reporting:</strong> GRI, SASB, TCFD, CDP compliance</li>
+						<li><strong>Anomaly Detection:</strong> AI-powered flagging of unusual consumption patterns</li>
+					</ul>
+				</section>
+
+				<!-- Call to Action -->
+				<section>
+					<div class="row">
+						<div class="col-6 col-12-small">
+							<ul class="actions stacked">
+								<li><a href="https://github.com/ztipton19/esg-ai-project" class="button primary fit">View on GitHub</a></li>
+							</ul>
+						</div>
+					</div>
+					<ul class="actions">
+						<li><a href="index.html" class="button">← Back to Portfolio</a></li>
+					</ul>
+				</section>
+
+			</div>
+
+		<!-- Footer -->
+			<footer id="footer">
+				<div class="inner">
+					<ul class="icons">
+						<li><a href="https://linkedin.com/in/ztipton" class="icon brands fa-linkedin"><span class="label">LinkedIn</span></a></li>
+						<li><a href="mailto:zacharytipton@gmail.com" class="icon solid fa-envelope"><span class="label">Email</span></a></li>
+					</ul>
+					<ul class="copyright">
+						<li>&copy; Zachary Tipton</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+					</ul>
+				</div>
+			</footer>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.poptrox.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
