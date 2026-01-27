@@ -1,0 +1,282 @@
+<!DOCTYPE HTML>
+<!--
+	Strata by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Writing Studio Analytics | Zachary Tipton</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+	</head>
+	<body class="is-preload">
+
+		<header id="header">
+		<div class="inner">
+			<h1>
+			<strong>Writing Studio Analytics</strong>
+			</h1>
+
+			<p style="margin-top: 1em; line-height: 1.5em;">
+			A privacy-first analytics platform built for the University of Arkansas Writing Studio. 
+			Generates FERPA-compliant reports from Penji session exports, with an optional 
+			local AI assistant for natural language data queries — all running entirely offline.
+			</p>
+		</div>
+		</header>
+
+		<!-- Main -->
+			<div id="main" class="project-page">
+
+				<!-- Back Button -->
+				<section class="intro">
+				<div style="margin-bottom: 1em;">
+					<a href="index.html" class="button small">← Back to Portfolio</a>
+				</div>
+				</section>
+
+				<!-- Project Preview -->
+				<section>
+					<div class="box alt">
+						<div class="row gtr-50 gtr-uniform">
+							<div class="col-12">
+								<img src="images/fulls/ws-data-analytics.png" alt="Writing Studio Analytics" style="width: 100%; border-radius: 4px;" />
+							</div>
+						</div>
+					</div>
+					<ul class="actions">
+						<li><a href="https://github.com/ztipton19/writing-studio-analytics" class="button primary">View on GitHub</a></li>
+					</ul>
+				</section>
+
+				<!-- Problem & Solution -->
+				<section>
+					<h2>Problem</h2>
+					<p>University writing centers collect session data through platforms like Penji, but analyzing that data means handling FERPA-protected student records. Cloud-based tools introduce compliance risk. Manual analysis is slow and inconsistent. The Writing Studio needed a way to generate standardized analytics reports without student data ever leaving the machine.</p>
+					
+					<h2>Solution</h2>
+					<p>A self-contained Streamlit application that:</p>
+					<ul>
+						<li>Ingests Penji CSV/Excel exports and produces multi-section PDF reports with anonymized datasets</li>
+						<li>Detects and removes all personally identifiable information automatically</li>
+						<li>Provides an optional AI chat interface powered by a local LLM (no cloud APIs)</li>
+						<li>Ships as a portable package — no Python installation required, runs from a USB drive or shared folder</li>
+					</ul>
+				</section>
+
+				<!-- Features -->
+				<section>
+					<h2>Key Features</h2>
+					
+					<h3>Report Generation</h3>
+					<ul>
+						<li><strong>Dual-mode support:</strong> Separate cleaning pipelines and report templates for 40-minute scheduled appointments and walk-in sessions</li>
+						<li><strong>Auto-detection:</strong> Identifies session type from column patterns in the uploaded file</li>
+						<li><strong>11-section PDF reports</strong> (scheduled) covering booking behavior, attendance outcomes, student satisfaction, tutor workload, session content, incentive analysis, data quality, and semester comparisons</li>
+						<li><strong>Anonymized CSV export</strong> alongside the PDF for further analysis</li>
+					</ul>
+
+					<h3>Privacy & Security</h3>
+					<ul>
+						<li><strong>Two-layer PII detection:</strong> Exact column name matching + regex pattern scanning for emails, SSO IDs, and names</li>
+						<li><strong>SHA256-based anonymization:</strong> Deterministic anonymous IDs (<code>STU_04521</code>, <code>TUT_0842</code>) with collision handling</li>
+						<li><strong>Encrypted codebook:</strong> Optional reverse-lookup file using PBKDF2-HMAC-SHA256 key derivation (100,000 iterations) and Fernet symmetric encryption. Requires a 12+ character password to decrypt, allowing supervisors to identify flagged individuals when needed</li>
+						<li><strong>Response filtering:</strong> AI chat responses are scanned for PII leakage before display</li>
+					</ul>
+
+					<h3>AI Chat Assistant</h3>
+					<ul>
+						<li><strong>Model:</strong> Gemma 3 4B Instruct (Q4_0 quantized GGUF, ~3 GB)</li>
+						<li><strong>Inference:</strong> llama-cpp-python running locally on CPU (with optional CUDA/Metal GPU acceleration)</li>
+						<li><strong>Safety:</strong> Weighted input scoring system with 78 off-topic patterns, 43 jailbreak detection regexes, and post-generation response filtering</li>
+						<li><strong>Code execution:</strong> LLM can generate and run pandas/DuckDB queries against the loaded dataset in a restricted sandbox</li>
+						<li><strong>Query logging:</strong> All prompts logged with timestamps and accept/reject status to <code>logs/queries.log</code></li>
+						<li><strong>Graceful degradation:</strong> If the model file isn't downloaded, the tab shows a one-click download button with a progress bar. If the inference library isn't installed, the tab explains what's needed. The rest of the app works regardless.</li>
+					</ul>
+
+					<h3>Analytics Engine</h3>
+					<p>Over 1,300 lines of metrics calculations covering:</p>
+					<ul>
+						<li><strong>Booking behavior:</strong> Lead time distributions (same-day through 7+ days), temporal patterns by day and hour, day/time heatmaps</li>
+						<li><strong>Attendance:</strong> Completion, cancellation, and no-show rates — overall, by location (in-person vs. Zoom), by day of week, and by semester</li>
+						<li><strong>Student satisfaction:</strong> Pre/post confidence distributions, confidence change deltas, satisfaction ratings (1-7 scale), tutor rapport and session quality scores</li>
+						<li><strong>Tutor workload:</strong> Sessions per tutor, average session length, balance analysis</li>
+						<li><strong>Statistical outlier detection:</strong> IQR method with NaN preservation — outliers are removed from calculations but legitimate missing data is kept</li>
+					</ul>
+				</section>
+
+				<!-- Tech Stack -->
+				<section>
+					<h2>Tech Stack</h2>
+					<table>
+						<thead>
+							<tr>
+								<th>Layer</th>
+								<th>Technology</th>
+								<th>Role</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td><strong>UI</strong></td>
+								<td>Streamlit</td>
+								<td>Web interface, file uploads, tab navigation</td>
+							</tr>
+							<tr>
+								<td><strong>Data</strong></td>
+								<td>pandas, NumPy, DuckDB</td>
+								<td>Cleaning, transformation, fast SQL-like queries</td>
+							</tr>
+							<tr>
+								<td><strong>Visualization</strong></td>
+								<td>Matplotlib, Seaborn, Altair</td>
+								<td>Charts for PDF reports and interactive display</td>
+							</tr>
+							<tr>
+								<td><strong>PDF</strong></td>
+								<td>ReportLab</td>
+								<td>Multi-page report generation with embedded charts</td>
+							</tr>
+							<tr>
+								<td><strong>Privacy</strong></td>
+								<td>cryptography, hashlib</td>
+								<td>Anonymization and encrypted codebook</td>
+							</tr>
+							<tr>
+								<td><strong>AI</strong></td>
+								<td>llama-cpp-python, Gemma 3 4B</td>
+								<td>Local LLM inference, no external API calls</td>
+							</tr>
+							<tr>
+								<td><strong>Distribution</strong></td>
+								<td>Embedded Python 3.11, batch scripts</td>
+								<td>Portable package, no installation required</td>
+							</tr>
+						</tbody>
+					</table>
+				</section>
+
+				<!-- Architecture -->
+				<section>
+					<h2>Architecture</h2>
+					<p>The project follows a modular structure with clear separation of concerns:</p>
+					<pre style="background: #f4f4f4; padding: 1em; border-radius: 4px; overflow-x: auto;">
+app.py                          Entry point (Streamlit app, ~900 lines)
+
+src/
+  core/
+    data_cleaner.py             10-step scheduled session cleaning pipeline
+    walkin_cleaner.py           Walk-in session cleaning pipeline
+    metrics.py                  Scheduled session analytics (1,384 lines)
+    walkin_metrics.py           Walk-in specific metrics
+    privacy.py                  PII detection, SHA256 anonymization, Fernet encryption
+    location_metrics.py         Location-based analytics
+
+  ai_chat/
+    chat_handler.py             Orchestrates queries, validation, code execution
+    llm_engine.py               Gemma model loading and inference wrapper
+    safety_filters.py           Input validation + response filtering
+    code_executor.py            Sandboxed pandas/DuckDB code execution
+    query_engine.py             Natural language to SQL translation via DuckDB
+    prompt_templates.py         System prompts built from data context
+    setup_model.py              Model download and system requirements check
+
+  visualizations/
+    report_generator.py         Scheduled session PDF report (11 sections)
+    walkin_report_generator.py  Walk-in session PDF report (8 sections)
+    charts.py                   Reusable chart functions
+
+  utils/
+    academic_calendar.py        Semester detection from dates
+					</pre>
+				</section>
+
+				<!-- Design Decisions -->
+				<section>
+					<h2>Design Decisions</h2>
+					
+					<h3>Local-only inference</h3>
+					<p>Student data never leaves the machine. The LLM runs on CPU via llama-cpp-python rather than calling an external API, which eliminates FERPA concerns around data transmission.</p>
+
+					<h3>Deterministic anonymization</h3>
+					<p>SHA256 hashing produces the same anonymous ID for the same email across runs, so longitudinal analysis works without storing raw identifiers.</p>
+
+					<h3>Graceful degradation</h3>
+					<p>Every optional feature (AI chat, walk-in mode, GPU acceleration) disables itself cleanly if its dependencies are missing, rather than crashing. The app always works at its core: upload data, get a report.</p>
+
+					<h3>Portable Python</h3>
+					<p>The target user has no development tools and limited admin access on a university-managed machine. Embedding Python and all dependencies in the distribution folder avoids installation entirely.</p>
+
+					<h3>Weighted safety scoring</h3>
+					<p>Rather than a simple keyword blocklist, the AI input validator uses a scoring system (+2 for data-relevant terms, -3 for off-topic, -5 for harmful) so that a query mentioning both data terms and an incidental flagged word isn't falsely rejected.</p>
+				</section>
+
+				<!-- Distribution -->
+				<section>
+					<h2>Distribution</h2>
+					<p>The app ships as a portable folder (~600 MB zipped, no model) that runs on any Windows machine without Python installed:</p>
+					<pre style="background: #f4f4f4; padding: 1em; border-radius: 4px; overflow-x: auto;">
+WritingStudioAnalytics/
+  python/          Embedded Python 3.11 + all dependencies
+  src/             Source code
+  models/          Empty — user downloads AI model here (~3 GB, optional)
+  app.py           Main application
+  launch.bat       Double-click to start
+					</pre>
+					<p>The AI model is hosted on S3 and can be downloaded from within the app with a single button click and a progress bar. The full analytics and reporting features work without it.</p>
+				</section>
+
+				<!-- Key Takeaways -->
+				<section>
+					<h2>Key Takeaways</h2>
+					<p>This project demonstrates several critical technical capabilities:</p>
+					<ol>
+						<li><strong>Privacy Engineering:</strong> Implementing robust PII detection, anonymization, and encryption to ensure FERPA compliance while maintaining data utility</li>
+						<li><strong>System Architecture:</strong> Designing a modular, maintainable codebase with clear separation between data processing, visualization, AI components, and utilities</li>
+						<li><strong>End-User Focus:</strong> Creating a solution that runs without installation or technical knowledge, addressing real user constraints and institutional environments</li>
+						<li><strong>Local AI Integration:</strong> Successfully integrating local LLM inference with safety systems, code execution capabilities, and graceful degradation patterns</li>
+						<li><strong>Analytics Depth:</strong> Building a comprehensive analytics engine with 1,300+ lines of metrics calculations covering diverse dimensions of writing center operations</li>
+					</ol>
+				</section>
+
+				<!-- Call to Action -->
+				<section>
+					<div class="row">
+						<div class="col-6 col-12-small">
+							<ul class="actions stacked">
+								<li><a href="https://github.com/ztipton19/writing-studio-analytics" class="button primary fit">View on GitHub</a></li>
+							</ul>
+						</div>
+					</div>
+					<ul class="actions">
+						<li><a href="index.html" class="button">← Back to Portfolio</a></li>
+					</ul>
+				</section>
+
+			</div>
+
+		<!-- Footer -->
+			<footer id="footer">
+				<div class="inner">
+					<ul class="icons">
+						<li><a href="https://linkedin.com/in/ztipton" class="icon brands fa-linkedin"><span class="label">LinkedIn</span></a></li>
+						<li><a href="mailto:zacharytipton@gmail.com" class="icon solid fa-envelope"><span class="label">Email</span></a></li>
+					</ul>
+					<ul class="copyright">
+						<li>&copy; Zachary Tipton</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+					</ul>
+				</div>
+			</footer>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.poptrox.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
