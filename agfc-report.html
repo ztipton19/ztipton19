@@ -1,0 +1,293 @@
+<!DOCTYPE HTML>
+<!--
+	Strata by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Arkansas River Recreation Analysis | Zachary Tipton</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+	</head>
+	<body class="is-preload">
+
+		<header id="header">
+		<div class="inner">
+			<h1>
+			<strong>Arkansas River Recreation Analysis</strong>
+			</h1>
+
+			<p style="margin-top: 1em; line-height: 1.5em;">
+			Cost-benefit analysis for Arkansas Game & Fish Commission using causal 
+			inference to evaluate infrastructure investment impacts on river recreation.
+			</p>
+		</div>
+		</header>
+
+		<!-- Main -->
+			<div id="main" class="project-page">
+
+				<!-- Back Button -->
+				<section class="intro">
+				<div style="margin-bottom: 1em;">
+					<a href="index.html" class="button small">← Back to Portfolio</a>
+				</div>
+				</section>
+
+				<!-- Project Preview -->
+				<section>
+					<div class="box alt">
+						<div class="row gtr-50 gtr-uniform">
+							<div class="col-12">
+								<img src="images/fulls/agfc-river-analysis.png" alt="AGFC One-Page Summary" style="width: 100%; border-radius: 4px;" />
+							</div>
+						</div>
+					</div>
+					<ul class="actions">
+						<li><a href="#" class="button primary">Read Full Technical Report</a></li>
+						<li><a href="#" class="button">View One-Page Summary</a></li>
+					</ul>
+				</section>
+
+				<!-- Project + Impact + Tools -->
+				<section>
+					<h2>Project</h2>
+					<p>Arkansas Game & Fish Commission (AGFC) requested economic analysis to justify expanding river management programs statewide. The original questions focused on revenue generation potential, local economic impacts of developing river access areas, and return on investment for infrastructure improvements.</p>
+					
+					<p>Initial exploration using county-level tax revenue and tourism data encountered a fundamental attribution problem: no reliable way to isolate river recreation impacts from all other tourism activity. This led to a methodological pivot examining the best available comparable data—National Park Service rivers with 26 years of budget and visitation records, including the 2009 American Recovery and Reinvestment Act (ARRA) which invested $750 million in park infrastructure.</p>
+
+					<h2>Impact</h2>
+					<p>The analysis found <strong>no causal relationship between capital spending and visitor numbers</strong> across 10 NPS river units from 1998-2024, even with ARRA investments ranging from -$14,000 to $256,000. This challenges the foundational assumption underlying infrastructure-led tourism growth strategies.</p>
+					
+					<p><strong>Key Policy Implications:</strong></p>
+					<ul>
+						<li><strong>Avoided Ineffective Spending:</strong> Findings suggest infrastructure alone doesn't drive visitation, potentially saving AGFC from costly investments with uncertain returns</li>
+						<li><strong>Alternative Strategy Recommended:</strong> Proposed coordinated approach emphasizing visitor amenities at underutilized sites, active marketing campaigns highlighting unique river characteristics, and systematic data collection to measure outcomes</li>
+						<li><strong>Study Design Provided:</strong> Detailed recommendations for collecting baseline visitation counts, conducting visitor surveys, and measuring investment effects over time—creating evidence base for future decisions</li>
+						<li><strong>Stakeholder Translation:</strong> Complex econometric findings distilled into actionable one-page summary for non-technical decision-makers</li>
+					</ul>
+
+					<h2>Tools & Methods</h2>
+					<ul>
+						<li><strong>Python:</strong> pandas for data manipulation, statsmodels for econometric analysis, matplotlib/seaborn for visualization</li>
+						<li><strong>Causal Inference Techniques:</strong> Panel data models with fixed effects, difference-in-differences analysis, event study specification, parallel trends testing</li>
+						<li><strong>Econometric Methods:</strong> Two-way fixed effects controlling for river-specific characteristics and common time shocks, lagged treatment structures (1, 3, 5-year lags), continuous treatment DiD exploiting ARRA natural experiment</li>
+						<li><strong>Data Sources:</strong> National Park Service budget justification documents (1998-2024), recreational visitor counts by river unit</li>
+						<li><strong>Statistical Software:</strong> Clustered standard errors at river level, robust inference accounting for serial correlation</li>
+					</ul>
+				</section>
+
+				<!-- Technical Skills -->
+				<section>
+					<h2>Technical Skills Demonstrated</h2>
+					
+					<h3>Causal Inference & Econometrics</h3>
+					<ul>
+						<li><strong>Identification Strategies:</strong> Addressed simultaneity bias (popular rivers receive more funding) using fixed effects to control for time-invariant confounders</li>
+						<li><strong>Natural Experiments:</strong> Exploited ARRA stimulus as exogenous shock providing quasi-random variation in infrastructure funding</li>
+						<li><strong>Event Study Design:</strong> Tested parallel trends assumption with year-by-year coefficient estimates, verifying pre-treatment periods showed no differential trends</li>
+						<li><strong>Treatment Effect Heterogeneity:</strong> Examined both continuous treatment (funding intensity) and quartile-based specifications to detect non-linear effects</li>
+						<li><strong>Lagged Effects:</strong> Tested infrastructure impacts at 1, 3, and 5-year lags to account for delayed construction and visitor response</li>
+					</ul>
+
+					<h3>Data Analysis & Manipulation</h3>
+					<ul>
+						<li><strong>Panel Data Construction:</strong> Assembled 26-year longitudinal dataset from 260+ PDF budget documents, creating river-year observations</li>
+						<li><strong>Variance Decomposition:</strong> Separated between-river variation (R² = 0.804) from within-river variation (R² = 0.114) to isolate causal effects</li>
+						<li><strong>Treatment Variable Engineering:</strong> Constructed ARRA intensity measure as 2009-2008 budget change, normalized by $100,000 for interpretability</li>
+						<li><strong>Missing Data Handling:</strong> Limited analysis to 10 rivers with complete 26-year records to avoid bias from partial coverage</li>
+					</ul>
+
+					<h3>Statistical Inference & Robustness</h3>
+					<ul>
+						<li><strong>Clustered Standard Errors:</strong> Accounted for serial correlation within rivers over time, providing conservative inference</li>
+						<li><strong>Multiple Specifications:</strong> Pooled OLS baseline, river fixed effects, two-way fixed effects, lagged models, and DiD—consistent null findings across all</li>
+						<li><strong>Sensitivity Analysis:</strong> Tested alternative lag structures, quartile vs. continuous treatment, parallel trends validation</li>
+						<li><strong>Power Considerations:</strong> Acknowledged limited statistical power due to small sample (N=10 rivers) and modest treatment intensity ($119K mean ARRA increase)</li>
+					</ul>
+
+					<h3>Research Design & Problem Solving</h3>
+					<ul>
+						<li><strong>Methodological Pivot:</strong> Recognized attribution problem in original approach, identified alternative data source addressing same theoretical question</li>
+						<li><strong>Limitations Transparency:</strong> Clearly documented Great Recession confounding, maintenance vs. amenity distinction, selection bias concerns, external validity constraints</li>
+						<li><strong>Alternative Mechanisms:</strong> Acknowledged infrastructure might affect willingness-to-pay, trip length, or spending without increasing visitor counts</li>
+						<li><strong>Future Research Roadmap:</strong> Proposed data collection program enabling causal inference in Arkansas context</li>
+					</ul>
+
+					<h3>Communication & Stakeholder Engagement</h3>
+					<ul>
+						<li><strong>Dual-Audience Approach:</strong> Technical report for academic rigor, one-page summary for policy actionability</li>
+						<li><strong>Visual Evidence:</strong> Scatter plots showing correlation vs. causation, variance decomposition charts, event study coefficients with confidence intervals</li>
+						<li><strong>Actionable Recommendations:</strong> Translated null findings into concrete policy alternatives rather than just reporting "no effect"</li>
+						<li><strong>Transparent Uncertainty:</strong> Communicated what the analysis could and couldn't answer, guiding future data collection</li>
+					</ul>
+				</section>
+
+				<!-- Key Findings -->
+				<section>
+					<h2>Key Findings</h2>
+					
+					<h3>Main Result: No Causal Effect of Infrastructure on Visitation</h3>
+					<p>Across all specifications—pooled OLS, river fixed effects, two-way fixed effects, lagged models, and difference-in-differences—there was no evidence that capital budget increases caused higher recreational visitation. While pooled correlations showed strong positive relationships (R² = 0.804), this reflected between-river differences (popular rivers receive larger budgets) rather than within-river causal effects.</p>
+
+					<h3>Fixed Effects Analysis</h3>
+					<ul>
+						<li><strong>Pooled OLS:</strong> Each additional dollar in capital budget associated with 0.20 additional visitors (highly significant, p < 0.001)</li>
+						<li><strong>River Fixed Effects:</strong> Coefficient dropped to 0.08 and became statistically insignificant (p = 0.338), showing correlation was driven by permanent river characteristics</li>
+						<li><strong>Two-Way Fixed Effects:</strong> Coefficient remained insignificant (0.14, p = 0.339) after controlling for common time shocks</li>
+					</ul>
+
+					<h3>ARRA Natural Experiment</h3>
+					<ul>
+						<li><strong>Parallel Trends Validated:</strong> Pre-2009 event study coefficients clustered near zero with no significant deviations, supporting causal identification</li>
+						<li><strong>No Post-Treatment Effects:</strong> Post-2009 coefficients remained near zero without systematic upward movement despite $119K average funding increases</li>
+						<li><strong>Quartile Analysis:</strong> Only statistically significant coefficient was negative (Q3: -172,619 visitors, p = 0.056), contradicting infrastructure impact hypothesis</li>
+					</ul>
+
+					<h3>Lagged Effects Testing</h3>
+					<p>Infrastructure effects might emerge with time lags as construction completes and visitors discover improvements. Tested 1-year, 3-year, and 5-year lags—all coefficients remained statistically insignificant with confidence intervals encompassing zero at every horizon.</p>
+				</section>
+
+				<!-- Methodological Approach -->
+				<section>
+					<h2>Methodological Approach</h2>
+					
+					<h3>Research Question Evolution</h3>
+					<p>AGFC initially requested analysis of how developing river access areas increases local tourism and economic activity. County-level data proved inadequate for causal inference due to inability to separate river recreation from other tourism. The analysis pivoted to a foundational question: does infrastructure investment reliably increase recreation visitation at all?</p>
+
+					<h3>Identification Strategy</h3>
+					<p>Simple correlations between budgets and visitation suffer from omitted variable bias—rivers with superior natural amenities, better locations, or historical popularity receive both higher funding and higher visitation independent of infrastructure effects. Three strategies addressed this:</p>
+					
+					<ol>
+						<li><strong>Panel Fixed Effects:</strong> Control for time-invariant river characteristics (natural beauty, location, size) using each river as its own control</li>
+						<li><strong>Two-Way Fixed Effects:</strong> Additionally control for common time shocks (recession, gas prices, tourism trends) affecting all rivers</li>
+						<li><strong>Natural Experiment:</strong> Exploit ARRA stimulus providing quasi-random variation in funding intensity across rivers</li>
+					</ol>
+
+					<h3>Data Structure</h3>
+					<p>Panel dataset spanning 10 National Park Service river units observed annually from 1998-2024 (N = 258 river-year observations). Selected rivers share similar designations, are located in contiguous U.S., and rely primarily on congressional appropriations for funding consistency.</p>
+
+					<h3>Statistical Models</h3>
+					<p>Estimated five core specifications:</p>
+					<ul>
+						<li>Pooled OLS establishing baseline correlation</li>
+						<li>River fixed effects controlling for permanent differences</li>
+						<li>Two-way fixed effects adding year controls</li>
+						<li>Lagged treatment models testing delayed effects</li>
+						<li>Continuous treatment difference-in-differences exploiting ARRA</li>
+					</ul>
+				</section>
+
+				<!-- Limitations & Future Work -->
+				<section>
+					<h2>Limitations & Future Research</h2>
+					
+					<h3>Study Limitations</h3>
+					<ul>
+						<li><strong>Great Recession Confounding:</strong> ARRA implementation coincided with 2008-2009 recession, potentially overwhelming infrastructure effects with negative demand shocks</li>
+						<li><strong>Maintenance vs. Amenities:</strong> ARRA prioritized "deferred maintenance" and repairs rather than capacity-expanding amenities that might increase visitation</li>
+						<li><strong>Limited Treatment Intensity:</strong> Average $119K funding increases insufficient for transformational projects (boat ramps cost $100K-$300K, visitor centers $1M-$3M)</li>
+						<li><strong>Small Sample Size:</strong> N=10 rivers limits statistical power to detect small effects</li>
+						<li><strong>External Validity:</strong> NPS river units are larger and more established than typical state/local river access areas</li>
+					</ul>
+
+					<h3>Recommended Study Design for Arkansas</h3>
+					<p>The analysis concluded with specific recommendations for AGFC to collect data enabling causal inference:</p>
+					<ul>
+						<li><strong>Baseline Measurement:</strong> Establish pre-improvement visitation counts using trail cameras at access points</li>
+						<li><strong>Visitor Surveys:</strong> Conduct intercept surveys collecting spending patterns, trip purpose, lodging, home residence</li>
+						<li><strong>Natural Experiment:</strong> Leverage sites like Saline River where management plans exist but aren't yet implemented</li>
+						<li><strong>Longitudinal Tracking:</strong> Continue data collection post-improvement to measure treatment effects</li>
+					</ul>
+				</section>
+
+				<!-- Policy Recommendations -->
+				<section>
+					<h2>Policy Recommendations for AGFC</h2>
+					<p>Based on findings that infrastructure alone doesn't reliably increase visitation, recommended a coordinated package strategy:</p>
+					
+					<h3>Strategic Amenity Development</h3>
+					<p>Prioritize visitor-serving amenities at underutilized rivers that enhance recreation experience and accommodate higher capacity—not just maintenance of existing facilities at popular destinations.</p>
+
+					<h3>Active Marketing Campaigns</h3>
+					<p>Partner with tourism officials to promote alternative destinations, highlighting what makes each river unique. Current situation concentrates pressure on overused rivers while underutilized rivers remain unknown to visitors.</p>
+
+					<h3>Use Management at Crowded Sites</h3>
+					<p>Consider strategies creating incentives for visitors to explore alternative destinations, distributing tourism pressure more evenly across the state's river system.</p>
+
+					<h3>Systematic Outcome Measurement</h3>
+					<p>Establish data collection systems enabling evidence-based decision making rather than assuming infrastructure automatically generates returns. The lack of baseline data in Arkansas prevents definitive cost-benefit analysis.</p>
+				</section>
+
+				<!-- Tools & Technologies -->
+				<section>
+					<h2>Tools & Technologies</h2>
+					<ul>
+						<li><strong>Python:</strong> pandas (data manipulation), statsmodels (econometric models), matplotlib/seaborn (visualization)</li>
+						<li><strong>Econometric Methods:</strong> Fixed effects panel models, difference-in-differences, event studies, clustered standard errors</li>
+						<li><strong>Data Sources:</strong> National Park Service budget justification documents, NPS visitor statistics database</li>
+						<li><strong>Statistical Software:</strong> Two-way fixed effects regression, lagged dependent variables, robust inference</li>
+						<li><strong>Communication Tools:</strong> Technical report writing, stakeholder summaries, data visualization</li>
+					</ul>
+				</section>
+
+				<!-- Key Takeaways -->
+				<section>
+					<h2>Key Takeaways</h2>
+					<p>This project demonstrates several critical principles in applied econometric analysis and policy research:</p>
+					<ol>
+						<li><strong>Correlation ≠ Causation:</strong> Strong cross-sectional correlations (R² = 0.804) disappeared once permanent differences were controlled for—popular rivers receive larger budgets because they're already popular, not vice versa</li>
+						<li><strong>Identification Requires Careful Design:</strong> Simple regressions mislead; causal inference demands strategies controlling for confounders (fixed effects, natural experiments, event studies)</li>
+						<li><strong>Null Results Are Results:</strong> Finding "no effect" provides valuable policy guidance—infrastructure spending may not be the most effective tool for increasing recreation visitation</li>
+						<li><strong>Methodological Flexibility:</strong> When initial data sources prove inadequate (county tax records), pivot to alternative approaches addressing the same theoretical question</li>
+						<li><strong>Stakeholder Translation:</strong> Technical econometric findings must be distilled into actionable recommendations for non-technical decision-makers</li>
+						<li><strong>Transparent Limitations:</strong> Acknowledging what analysis cannot answer (Arkansas-specific impacts) guides future data collection and research</li>
+					</ol>
+				</section>
+
+				<!-- Call to Action -->
+				<section>
+					<div class="row">
+						<div class="col-6 col-12-small">
+							<ul class="actions stacked">
+								<li><a href="https://github.com/ztipton19/Econometrics-Project/blob/main/project-report/Tipton_ProjectReport.pdf" class="button primary fit">Read Full Technical Report</a></li>
+							</ul>
+						</div>
+						<div class="col-6 col-12-small">
+							<ul class="actions stacked">
+								<li><a href="https://github.com/ztipton19/Econometrics-Project/blob/main/project-report/ZacharyTipton-project-report.pdf" class="button fit">View One-Page Summary</a></li>
+							</ul>
+						</div>
+					</div>
+					<ul class="actions">
+						<li><a href="index.html" class="button">← Back to Portfolio</a></li>
+					</ul>
+				</section>
+
+			</div>
+
+		<!-- Footer -->
+			<footer id="footer">
+				<div class="inner">
+					<ul class="icons">
+						<li><a href="https://linkedin.com/in/ztipton" class="icon brands fa-linkedin"><span class="label">LinkedIn</span></a></li>
+						<li><a href="mailto:zacharytipton@gmail.com" class="icon solid fa-envelope"><span class="label">Email</span></a></li>
+					</ul>
+					<ul class="copyright">
+						<li>&copy; Zachary Tipton</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+					</ul>
+				</div>
+			</footer>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.poptrox.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>

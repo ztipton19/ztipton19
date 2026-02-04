@@ -1,0 +1,211 @@
+<!DOCTYPE HTML>
+<!--
+	Strata by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>UkeLabs | Zachary Tipton</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+	</head>
+	<body class="is-preload">
+
+		<header id="header">
+		<div class="inner">
+			<h1>
+			<strong>UkeLabs</strong>
+			</h1>
+
+			<p style="margin-top: 1em; line-height: 1.5em;">
+			iOS ukulele learning app with interactive chord visualization, reverse 
+			chord lookup, and chromatic tuner. Currently in TestFlight beta.
+			</p>
+		</div>
+		</header>
+
+		<!-- Main -->
+			<div id="main" class="project-page">
+
+				<!-- Back Button -->
+				<section class="intro">
+				<div style="margin-bottom: 1em;">
+					<a href="index.html" class="button small">← Back to Portfolio</a>
+				</div>
+				</section>
+
+				<!-- App Screenshots -->
+				<section>
+					<div class="box alt">
+						<div class="row gtr-50 gtr-uniform">
+                            <div class="col-4">
+								<img src="images/ukelabs/scales.jpeg" alt="Scale Explorer" style="width: 100%; border-radius: 4px;" />
+							</div>
+							<div class="col-4">
+								<img src="images/ukelabs/chord-progression.jpeg" alt="Chord Progression" style="width: 100%; border-radius: 4px;" />
+							</div>
+							<div class="col-4">
+								<img src="images/ukelabs/reverse-chord-lookup.jpeg" alt="Reverse Chord Lookup" style="width: 100%; border-radius: 4px;" />
+							</div>
+						</div>
+					</div>
+					<ul class="actions">
+						<li><a href="#" class="button primary">Coming to App Store</a></li>
+						<li><a href="https://github.com/ztipton19/app-UkeLabs" class="button">View on GitHub</a></li>
+					</ul>
+				</section>
+
+				<!-- Project + Impact + Tools -->
+				<section>
+					<h2>Project</h2>
+					<p>Comprehensive ukulele learning app built from scratch to address gaps in existing iOS offerings. Combines chord visualization, music theory education, and real-time pitch detection into a single, cohesive learning tool for musicians.</p>
+
+					<h2>Impact</h2>
+					<p>End-to-end mobile product development from concept to TestFlight beta. Demonstrates ability to ship complete applications independently—handling everything from UI/UX design and native module integration to music theory implementation and beta testing coordination.</p>
+
+					<h2>Tools</h2>
+					<p>React Native, Expo SDK 54, native C++ (YIN algorithm), Swift (iOS), Kotlin (Android), AVFoundation, custom React components, Git, TestFlight.</p>
+				</section>
+
+				<!-- Features -->
+				<section>
+					<h2>Core Features</h2>
+					
+					<h3>Chord Library</h3>
+					<p>Complete database covering all 12 keys with multiple voicings per chord. Interactive fretboard displays notes, fret positions, or finger placements. Includes music theory breakdowns (formulas, intervals, voicing analysis) for each chord type.</p>
+
+					<h3>Scale Explorer</h3>
+					<p>24 scales (12 major, 12 natural minor) with diatonic chord progressions and Roman numeral analysis. Integrated with chord library—tap any scale degree to see the chord voicings.</p>
+
+					<h3>Reverse Chord Lookup</h3>
+					<p>Interactive fretboard where users tap to build chord shapes. Algorithm identifies exact and probable matches instantly. Tap suggested chords to see proper fingering, enabling self-guided learning of unfamiliar voicings.</p>
+
+					<h3>Chromatic Tuner (In Development)</h3>
+					<p>Real-time pitch detection using native C++ implementation of YIN algorithm. Provides <10ms latency with ±1 cent accuracy. Visual tuning indicator shows cent deviation, wrong string detection, and confidence meter.</p>
+				</section>
+
+				<!-- Technical Implementation -->
+				<section>
+					<h2>Technical Highlights</h2>
+					
+					<h3>Native Module Integration</h3>
+					<p>Bridged React Native to C++ DSP code for professional-grade pitch detection. Configured CMakeLists.txt build system, implemented Swift/Kotlin wrappers, and created JavaScript hooks for seamless React integration.</p>
+
+					<h3>Music Theory Data Architecture</h3>
+					<p>Structured chord database supporting 100+ chord types across all keys. Each chord includes multiple voicings, finger positions, sounding notes, and theory metadata. Scale data includes diatonic progressions and interval explanations.</p>
+
+					<h3>Algorithm Development</h3>
+					<p>Implemented reverse chord lookup algorithm matching user-tapped fret positions against database. Handles exact matches and provides probable alternatives based on note similarity.</p>
+
+					<h3>Performance Optimization</h3>
+					<p>Memoized chord lookups to prevent redundant calculations. Efficient fretboard rendering with minimal re-renders. Background audio processing for tuner without blocking UI thread.</p>
+
+					<h3>Audio Configuration</h3>
+					<p>Tuned pitch detection parameters for ukulele-specific frequency range (80-1000 Hz). Configured 9000-sample buffer (~200ms) for low-frequency accuracy while maintaining real-time responsiveness.</p>
+				</section>
+
+				<!-- Tech Stack -->
+				<section>
+					<h2>Technology Stack</h2>
+					<ul>
+						<li><strong>Framework:</strong> React Native with Expo SDK 54</li>
+						<li><strong>Native Modules:</strong> C++ (YIN algorithm), Swift (iOS), Kotlin (Android)</li>
+						<li><strong>Audio:</strong> AVFoundation (iOS), AudioRecord (Android)</li>
+						<li><strong>State Management:</strong> React Hooks (useState, useEffect, useRef)</li>
+						<li><strong>Build Tools:</strong> Expo Application Services (EAS), CMake</li>
+						<li><strong>Testing:</strong> TestFlight beta distribution</li>
+					</ul>
+				</section>
+
+				<!-- Architecture -->
+				<section>
+					<h2>Project Architecture</h2>
+					<p>Modular component structure separating UI, data, and native code:</p>
+					<ul>
+						<li><strong>components/ui/:</strong> Reusable React Native components</li>
+						<li><strong>components/ukulele/chords/:</strong> Chord database organized by root note (A.js, B.js, C.js, etc.)</li>
+						<li><strong>components/ukulele/musicData.js:</strong> Scale definitions and theory data</li>
+						<li><strong>modules/pitch-detection/:</strong> Native C++/Swift/Kotlin implementation</li>
+						<li><strong>hooks/usePitchDetection.js:</strong> JavaScript bridge to native audio processing</li>
+					</ul>
+				</section>
+
+				<!-- Development Process -->
+				<section>
+					<h2>Development Process</h2>
+					
+					<h3>Problem Statement</h3>
+					<p>Existing ukulele apps lacked comprehensive chord libraries, were missing reverse lookup features, or had poor-quality tuners. Built UkeLabs to provide a professional, all-in-one learning tool.</p>
+
+					<h3>Implementation Challenges</h3>
+					<p>Native C++ integration required learning CMake build configuration, TurboModule architecture, and platform-specific audio APIs. Pitch detection algorithm needed careful parameter tuning for ukulele's re-entrant tuning (high G string). Beta testing revealed edge cases in chord matching algorithm requiring refinement.</p>
+
+					<h3>Current Status</h3>
+					<p>TestFlight beta with active user feedback. Chord library and reverse lookup fully functional. Tuner in final development stage—native C++ module operational, optimizing real-time UI updates.</p>
+				</section>
+
+				<!-- Key Takeaways -->
+				<section>
+					<h2>Key Takeaways</h2>
+					<ul>
+						<li><strong>Full-Stack Mobile Development:</strong> Managed entire product lifecycle from design through beta deployment</li>
+						<li><strong>Native Module Expertise:</strong> Successfully integrated C++/Swift/Kotlin code into React Native application</li>
+						<li><strong>Algorithm Implementation:</strong> Translated academic research (YIN algorithm) into production code</li>
+						<li><strong>User-Centric Design:</strong> Iterating based on TestFlight feedback to refine features and UX</li>
+						<li><strong>Cross-Platform Considerations:</strong> Built architecture supporting both iOS and Android from single codebase</li>
+					</ul>
+				</section>
+
+				<!-- Credits -->
+				<section>
+					<h2>Acknowledgments</h2>
+					<p><strong>Pitch Detection:</strong> Based on <a href="https://github.com/DonBraulio/tuneo">Tuneo</a> by DonBraulio for YIN algorithm implementation and TurboModule architecture.</p>
+					<p><strong>YIN Algorithm:</strong> Cheveigné, A. de, & Kawahara, H. (2002). YIN, a fundamental frequency estimator for speech and music. <em>The Journal of the Acoustical Society of America</em>, 111(4), 1917-1930.</p>
+				</section>
+
+				<!-- Call to Action -->
+				<section>
+					<div class="row">
+						<div class="col-6 col-12-small">
+							<ul class="actions stacked">
+								<li><a href="#" class="button primary fit">Coming to App Store</a></li>
+							</ul>
+						</div>
+						<div class="col-6 col-12-small">
+							<ul class="actions stacked">
+								<li><a href="https://github.com/ztipton19/app-UkeLabs" class="button fit">View on GitHub</a></li>
+							</ul>
+						</div>
+					</div>
+					<ul class="actions">
+						<li><a href="index.html" class="button">← Back to Portfolio</a></li>
+					</ul>
+				</section>
+
+			</div>
+
+		<!-- Footer -->
+			<footer id="footer">
+				<div class="inner">
+					<ul class="icons">
+						<li><a href="https://linkedin.com/in/ztipton" class="icon brands fa-linkedin"><span class="label">LinkedIn</span></a></li>
+						<li><a href="mailto:zacharytipton@gmail.com" class="icon solid fa-envelope"><span class="label">Email</span></a></li>
+					</ul>
+					<ul class="copyright">
+						<li>&copy; Zachary Tipton</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+					</ul>
+				</div>
+			</footer>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.poptrox.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
