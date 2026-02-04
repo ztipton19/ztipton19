@@ -1,0 +1,170 @@
+<!DOCTYPE HTML>
+<!--
+	Strata by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Federal Analytics TUI | Zachary Tipton</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+	</head>
+	<body class="is-preload">
+
+		<!-- Header -->
+			<header id="header">
+				<div class="inner">
+					<a href="index.html" class="image avatar"><img src="images/avatar.jpg" alt="profile image" /></a>
+					<h1>I am <strong>Zachary Tipton</strong>, a Data Analyst<br />
+					building AI-powered solutions to solve problems quickly.</h1>
+				</div>
+			</header>
+
+		<!-- Main -->
+			<div id="main">
+
+				<!-- Project Header -->
+					<section id="one">
+						<header class="major">
+							<h2>Federal Analytics Application</h2>
+						</header>
+						<p><strong>A terminal-based application for fetching and analyzing federal agency web traffic data from the Digital Analytics Program (DAP) API.</strong></p>
+						
+						<h3>Project + Impact + Tools</h3>
+						<p><strong>Built:</strong> Modern TUI (Text User Interface) application with secure API key management, intelligent caching, and multi-agency data fetching capabilities</p>
+						<p><strong>Impact:</strong> Streamlines access to federal web analytics across 400+ agencies with progress tracking and sortable results</p>
+						<p><strong>Tech Stack:</strong> Python • Textual Framework • SQLite • REST API Integration • Environment Variable Security</p>
+
+						<ul class="actions">
+							<li><a href="https://github.com/ztipton19/federal_cache_project" class="button">View on GitHub</a></li>
+						</ul>
+					</section>
+
+				<!-- Key Features -->
+					<section id="two">
+						<h2>Key Features</h2>
+						
+						<h3>Modern Terminal Interface</h3>
+						<p>Built with Textual framework to deliver an app-like experience in the terminal with keyboard shortcuts, mouse support, and clean visual design.</p>
+						
+						<h3>Smart Caching System</h3>
+						<p>Intelligent caching reduces redundant API calls, storing responses locally to minimize load times and API rate limit impacts.</p>
+						
+						<h3>Multi-Agency Analysis</h3>
+						<p>Fetch analytics for individual agencies or pull reports across all 400+ federal agencies at once with visual progress tracking.</p>
+						
+						<h3>Secure API Management</h3>
+						<p>API keys stored in environment variables (excluded from version control) with automatic validation and setup prompts on first run.</p>
+						
+						<h3>15+ Report Types</h3>
+						<p>Access download events, traffic sources, device models, browser data, operating systems, domains, and more from the DAP API.</p>
+					</section>
+
+				<!-- Technical Implementation -->
+					<section id="three">
+						<h2>Technical Implementation</h2>
+						
+						<h3>Architecture</h3>
+						<p>Modular Python application with separation of concerns: API utilities handle external calls, cache logic manages data storage, database utilities provide SQLite operations, and the Textual UI layer handles user interactions.</p>
+						
+						<h3>Data Pipeline</h3>
+						<p>User selects agency and report type → Application checks local cache → If cached, return instantly; if not, fetch from API → Store in SQLite database → Display in sortable table view</p>
+						
+						<h3>Security Approach</h3>
+						<p>API keys managed via python-dotenv, stored in .env file automatically added to .gitignore. No credentials ever committed to version control.</p>
+					</section>
+
+				<!-- Usage Flow -->
+					<section id="four">
+						<h2>Usage Flow</h2>
+						
+						<p><strong>Setup:</strong> Clone repository → Install dependencies (python-dotenv, textual) → Run database setup → Launch application</p>
+						
+						<p><strong>Single Agency Analysis:</strong> Select agency from table → Choose report type (e.g., traffic-source, device-model) → Enter date → View results instantly</p>
+						
+						<p><strong>Bulk Analysis:</strong> Select "all agencies" → Choose report type → Watch progress bar → Review summary table with all results</p>
+						
+						<p><strong>Navigation:</strong> Arrow keys or mouse for selection • Tab/Shift+Tab between fields • ESC to close screens • Q to quit • D to toggle dark/light mode</p>
+					</section>
+
+				<!-- Project Structure -->
+					<section id="five">
+						<h2>Project Structure</h2>
+						<p><strong>textual_app.py</strong> - Main TUI application with screens and widgets<br />
+						<strong>cache_logic.py</strong> - Caching system and API request logic<br />
+						<strong>db_utils.py</strong> - SQLite database operations and queries<br />
+						<strong>api_utils.py</strong> - Helper functions for API interactions<br />
+						<strong>db_setup.py</strong> - Database initialization script<br />
+						<strong>federal_analytics.db</strong> - SQLite database for agency data<br />
+						<strong>cache_files/</strong> - Directory for cached API responses</p>
+					</section>
+
+				<!-- Available Reports -->
+					<section id="six">
+						<h2>Available Analytics Reports</h2>
+						<p>The DAP API provides 15+ report types covering visitor behavior, device usage, and traffic patterns:</p>
+						<p><strong>Traffic & Sources:</strong> traffic-source, domain, site, second-level-domain<br />
+						<strong>Devices:</strong> device (desktop/mobile/tablet), device-model<br />
+						<strong>Browsers & OS:</strong> browser, os, os-browser, windows-browser, windows, windows-ie<br />
+						<strong>Other:</strong> download events, language codes</p>
+					</section>
+
+				<!-- Get In Touch -->
+				<section id="seven">
+					<h2>Get In Touch</h2>
+					<p>Always happy to chat! Feel free to reach out if you have questions about my projects or think I'd be a valuable addition to your team.</p>
+					<div class="row">
+						<div class="col-8 col-12-small">
+							<form method="post" action="https://formspree.io/f/mldqyayy">
+								<div class="row gtr-uniform gtr-50">
+									<div class="col-6 col-12-xsmall"><input type="text" name="name" id="name" placeholder="Name" required /></div>
+									<div class="col-6 col-12-xsmall"><input type="email" name="email" id="email" placeholder="Email" required /></div>
+									<div class="col-12"><textarea name="message" id="message" placeholder="Message" rows="4" required></textarea></div>
+								</div>
+								<ul class="actions">
+									<li><input type="submit" value="Send Message" /></li>
+								</ul>
+							</form>
+						</div>
+						<div class="col-4 col-12-small">
+							<ul class="labeled-icons">
+								<li>
+									<h3 class="icon solid fa-home"><span class="label">Location</span></h3>
+									Fayetteville, Arkansas<br />
+									United States
+								</li>
+								<li>
+									<h3 class="icon solid fa-envelope"><span class="label">Email</span></h3>
+									<a href="mailto:zacharytipton@gmail.com">zacharytipton@gmail.com</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</section>
+			</div>
+
+		<!-- Footer -->
+			<footer id="footer">
+				<div class="inner">
+					<ul class="icons">
+						<li><a href="https://linkedin.com/in/ztipton" class="icon brands fa-linkedin"><span class="label">LinkedIn</span></a></li>
+						<li><a href="mailto:zacharytipton@gmail.com" class="icon solid fa-envelope"><span class="label">Email</span></a></li>
+					</ul>
+					<ul class="copyright">
+						<li>&copy; Zachary Tipton</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+					</ul>
+				</div>
+			</footer>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.poptrox.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
