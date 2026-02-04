@@ -1,0 +1,221 @@
+<!DOCTYPE HTML>
+<!--
+	Strata by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Bella Vista Financial Dashboard | Zachary Tipton</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+	</head>
+	<body class="is-preload">
+
+		<header id="header">
+		<div class="inner">
+			<h1>
+			<strong>Bella Vista Financial Dashboard</strong>
+			</h1>
+
+			<p style="margin-top: 1em; line-height: 1.5em;">
+			Excel-based budget vs. actual reporting dashboard with KPI tracking, 
+			variance analysis, and year-over-year comparisons.
+			</p>
+		</div>
+		</header>
+
+		<!-- Main -->
+			<div id="main" class="project-page">
+
+				<!-- Back Button -->
+				<section class="intro">
+				<div style="margin-bottom: 1em;">
+					<a href="index.html" class="button small">← Back to Portfolio</a>
+				</div>
+				</section>
+
+				<!-- Dashboard Preview -->
+				<section>
+					<div class="box alt">
+						<div class="row gtr-50 gtr-uniform">
+							<div class="col-12">
+								<img src="images/fulls/bella-vista-dashboard.png" alt="Bella Vista Financial Dashboard" style="width: 100%; border-radius: 4px;" />
+							</div>
+						</div>
+					</div>
+					<ul class="actions">
+						<li><a href="#" class="button primary">View on GitHub</a></li>
+					</ul>
+				</section>
+
+				<!-- Overview -->
+				<section>
+					<h2>Project Overview</h2>
+					<p>Interactive Excel dashboard analyzing budget vs. actual performance for Bella Vista Property Owners Association. Built for an academic assignment following a professional CFO tutorial, this project demonstrates proficiency in Excel's advanced features including dynamic formulas, conditional formatting, data visualization, and professional financial reporting standards.</p>
+					
+					<h3>Key Metrics Analyzed</h3>
+					<ul>
+						<li><strong>Critical Performance Issue:</strong> $589K net income loss vs. $636K budgeted profit—a $1.2M swing requiring immediate attention</li>
+						<li><strong>Revenue Performance:</strong> $47.2M actual revenue (0% variance from budget), tracking 9 revenue streams</li>
+						<li><strong>Operating Loss:</strong> $714K net operating income miss (-16% variance), identifying specific underperforming categories</li>
+						<li><strong>Year-over-Year Growth:</strong> 117% net income improvement from prior year, showing progress despite budget miss</li>
+					</ul>
+				</section>
+
+				<!-- Technical Skills -->
+				<section>
+					<h2>Technical Skills Demonstrated</h2>
+					
+					<h3>Dashboard Design & Layout</h3>
+					<ul>
+						<li><strong>Visual KPI Indicators:</strong> Donut charts showing performance against targets with color-coded status (green for on-target, red for misses)</li>
+						<li><strong>Multi-Section Layout:</strong> Year-to-date summary at top, year-over-year comparison in middle, detailed category breakdown at bottom</li>
+						<li><strong>Professional Formatting:</strong> Clean, scannable design with branded header and consistent visual hierarchy</li>
+						<li><strong>Chart Integration:</strong> Waterfall charts for YoY analysis, horizontal bar charts for category comparisons</li>
+					</ul>
+
+					<h3>Excel Technical Skills</h3>
+					<ul>
+						<li><strong>Multi-Sheet Architecture:</strong> 8 worksheets including raw data tables, cleaned data sources, calculation tables, and presentation dashboard</li>
+						<li><strong>Dynamic Formulas:</strong> Variance calculations, percentage calculations, and cross-sheet references avoiding hardcoded values</li>
+						<li><strong>Data Normalization:</strong> Structured data tables (Actual, Budget, Combined) feeding dashboard calculations</li>
+						<li><strong>Conditional Formatting:</strong> Automatic color-coding based on performance thresholds</li>
+						<li><strong>Professional Number Formatting:</strong> Currency formatting ($#,##0), percentages (0%), negative values in parentheses</li>
+					</ul>
+
+					<h3>Financial Analysis Techniques</h3>
+					<ul>
+						<li><strong>Variance Analysis:</strong> Budget vs. actual comparison across all revenue and expense categories with dollar and percentage variance</li>
+						<li><strong>YTD Performance Tracking:</strong> Year-to-date actuals compared against budget and prior year</li>
+						<li><strong>Gross Margin Analysis:</strong> 88% gross margin tracking with comparison to budget</li>
+						<li><strong>Expense Category Analysis:</strong> Labor & Personnel, Maintenance & Operations, General & Admin, Outside Contracts breakdown</li>
+					</ul>
+
+					<h3>Data Visualization</h3>
+					<ul>
+						<li><strong>KPI Donut Charts:</strong> Four key metrics (Revenue, Gross Profit, Total Opex, Net Income) with visual performance indicators</li>
+						<li><strong>Waterfall Charts:</strong> Year-over-year category changes showing positive and negative contributions</li>
+						<li><strong>Horizontal Bar Charts:</strong> Current vs. prior year comparison for revenue and expense categories</li>
+						<li><strong>Summary Tables:</strong> Detailed line-item breakdown with budget, actual, variance, and YoY data</li>
+					</ul>
+				</section>
+
+				<!-- System Architecture -->
+				<section>
+					<h2>Workbook Structure</h2>
+					<p>The dashboard uses a layered architecture separating data, calculations, and presentation:</p>
+					
+					<h3>Data Layer</h3>
+					<ul>
+						<li><strong>Full:</strong> Complete MTD and YTD data with all columns (Actual, Budget, Variance, Prior Year)</li>
+						<li><strong>YTD_Full:</strong> Year-to-date focused dataset</li>
+						<li><strong>Actual (YTD):</strong> Normalized actual values table</li>
+						<li><strong>Budget (YTD):</strong> Normalized budget values table</li>
+					</ul>
+
+					<h3>Calculation Layer</h3>
+					<ul>
+						<li><strong>Combined_YTD:</strong> Merged actual and budget data for variance analysis</li>
+						<li><strong>Combined_YoY:</strong> Year-over-year comparison calculations</li>
+						<li><strong>Figure Tables:</strong> Summary calculations feeding dashboard visuals</li>
+					</ul>
+
+					<h3>Presentation Layer</h3>
+					<ul>
+						<li><strong>Dashboard:</strong> Executive summary with KPIs, charts, and detailed breakdowns</li>
+					</ul>
+				</section>
+
+				<!-- Business Impact -->
+				<section>
+					<h2>Business Insights</h2>
+					<p>The dashboard immediately highlights a critical financial issue requiring executive attention:</p>
+					<ul>
+						<li><strong>Major Budget Miss:</strong> $589K net loss vs. $636K budgeted profit represents a $1.2M swing from expectations—the primary story this dashboard tells</li>
+						<li><strong>Revenue Meets Target:</strong> Despite revenue performing on-budget ($47.2M), the income miss indicates an expense control problem, not a sales problem</li>
+						<li><strong>Golf Operations Underperformance:</strong> $370K revenue shortfall in golf fees suggests seasonal or competitive challenges</li>
+						<li><strong>Operating Expense Concerns:</strong> $714K operating income miss (-16% variance) points to cost overruns requiring category-level investigation</li>
+						<li><strong>Growth Areas:</strong> Food & Beverage up $640K YoY, RV Income up $98K YoY show some operational strengths</li>
+						<li><strong>Declining Categories:</strong> Golf Fees down $202K YoY, Facility Use down $102K YoY requiring strategic review</li>
+					</ul>
+				</section>
+
+				<!-- Learning Approach -->
+				<section>
+					<h2>Learning & Development</h2>
+					<p>This project was completed following a comprehensive Excel financial dashboard tutorial, demonstrating my ability to:</p>
+					<ul>
+						<li>Learn professional financial modeling techniques through structured online resources</li>
+						<li>Apply CFO-level reporting standards to create stakeholder-ready deliverables</li>
+						<li>Understand variance analysis and financial performance metrics</li>
+						<li>Build dynamic Excel models using formulas rather than hardcoded values</li>
+						<li>Create visually compelling dashboards that communicate complex financial data clearly</li>
+					</ul>
+					
+					<p><strong>Tutorial Credit:</strong> This project followed the excellent instruction from Josh Aharonoff (Your CFO Guy) on YouTube. The tutorial provided structured guidance on budget vs. actual dashboard design, variance analysis best practices, and professional financial reporting standards.</p>
+				</section>
+
+				<!-- Tools & Technologies -->
+				<section>
+					<h2>Tools & Technologies</h2>
+					<ul>
+						<li><strong>Microsoft Excel:</strong> Dashboard creation, advanced formulas, data modeling, and chart design</li>
+						<li><strong>Financial Formulas:</strong> Variance calculations, percentage calculations, cross-sheet references</li>
+						<li><strong>Data Visualization:</strong> Donut charts, waterfall charts, horizontal bar charts</li>
+						<li><strong>Professional Formatting:</strong> Conditional formatting, number formatting, color-coding standards</li>
+					</ul>
+				</section>
+
+				<!-- Key Takeaways -->
+				<section>
+					<h2>Key Takeaways</h2>
+					<p>This project reinforced several critical concepts in financial reporting and Excel modeling:</p>
+					<ol>
+						<li><strong>Executive Dashboards Prioritize Clarity:</strong> Visual indicators and summary metrics enable quick decision-making, while detailed tables provide drill-down capability</li>
+						<li><strong>Dynamic Models Beat Static Reports:</strong> Using formulas instead of hardcoded values ensures the dashboard remains accurate as data updates</li>
+						<li><strong>Variance Analysis Drives Action:</strong> Highlighting budget misses and year-over-year changes helps stakeholders focus on areas requiring attention</li>
+						<li><strong>Professional Standards Matter:</strong> Consistent formatting, proper number display, and clear labeling make financial reports credible and easy to interpret</li>
+						<li><strong>Layered Architecture Enables Maintenance:</strong> Separating data, calculations, and presentation makes the workbook easier to update and debug</li>
+					</ol>
+				</section>
+
+				<!-- Call to Action -->
+				<section>
+					<div class="row">
+                        <div class="col-12">
+                            <h2>Explore More Projects</h2>
+                            <p>Interested in seeing more of my work? Visit my <a href="projects-hub.html">Projects Hub</a></p>
+                        </div>
+					</div>
+					<ul class="actions">
+						<li><a href="index.html" class="button">← Back to main page</a></li>
+					</ul>
+				</section>
+
+			</div>
+
+		<!-- Footer -->
+			<footer id="footer">
+				<div class="inner">
+					<ul class="icons">
+						<li><a href="https://linkedin.com/in/ztipton" class="icon brands fa-linkedin"><span class="label">LinkedIn</span></a></li>
+						<li><a href="mailto:zacharytipton@gmail.com" class="icon solid fa-envelope"><span class="label">Email</span></a></li>
+					</ul>
+					<ul class="copyright">
+						<li>&copy; Zachary Tipton</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+					</ul>
+				</div>
+			</footer>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.poptrox.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
